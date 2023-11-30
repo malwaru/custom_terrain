@@ -1,0 +1,12 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/home/malika/foxy_ws/install/two_wheeled_robot/lib/python3.8/site-packages",
+        "/home/malika/foxy_ws/install/romatris_handcart_navigation/lib/python3.8/site-packages",
+        "/home/malika/foxy_ws/install/realsense2_camera_msgs/lib/python3.8/site-packages",
+        "/home/malika/foxy_ws/build/python_subscriber",
+        "/home/malika/foxy_ws/install/python_subscriber/lib/python3.8/site-packages",
+        "/home/malika/foxy_ws/install/person_following_robot/lib/python3.8/site-packages",
+        "/home/malika/foxy_ws/install/gesture_recognision/lib/python3.8/site-packages",
+        "/opt/ros/foxy/lib/python3.8/site-packages"
+    ]
+}

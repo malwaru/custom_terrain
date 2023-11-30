@@ -1,0 +1,38 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/malika/foxy_ws/install/realsense2_camera/include/**",
+        "/home/malika/foxy_ws/install/realsense2_camera_msgs/include/**",
+        "/home/malika/foxy_ws/install/person_following_robot/include/**",
+        "/opt/ros/foxy/include/**",
+        "/home/malika/foxy_ws/src/custom_gazebo/include/**",
+        "/home/malika/foxy_ws/src/gesture-recognition/gesture_recognision/include/**",
+        "/home/malika/foxy_ws/src/person_following_robot/include/**",
+        "/home/malika/foxy_ws/src/realsense-ros/realsense2_camera/include/**",
+        "/home/malika/foxy_ws/src/romatris_handcart_description/include/**",
+        "/home/malika/foxy_ws/src/romatris_handcart_navigation/include/**",
+        "/home/malika/foxy_ws/src/ros2_canopen/canopen_402_driver/include/**",
+        "/home/malika/foxy_ws/src/ros2_canopen/canopen_base_driver/include/**",
+        "/home/malika/foxy_ws/src/ros2_canopen/canopen_core/include/**",
+        "/home/malika/foxy_ws/src/ros2_canopen/canopen_fake_slaves/include/**",
+        "/home/malika/foxy_ws/src/ros2_canopen/canopen_master_driver/include/**",
+        "/home/malika/foxy_ws/src/ros2_canopen/canopen_proxy_driver/include/**",
+        "/home/malika/foxy_ws/src/ros2_canopen/canopen_ros2_control/include/**",
+        "/home/malika/foxy_ws/src/ros2_canopen/canopen_ros2_controllers/include/**",
+        "/home/malika/foxy_ws/src/two_wheeled_robot/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}
