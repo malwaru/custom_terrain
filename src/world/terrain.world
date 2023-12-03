@@ -16,5 +16,30 @@
     <include>
       <uri>model://sun</uri>
     </include>
+    <spherical_coordinates> <surface_model>EARTH_WGS84</surface_model> 
+    <latitude_deg>-37.644121</latitude_deg> 
+    <longitude_deg>176.183812</longitude_deg>
+     <elevation>0</elevation> <heading_deg>0</heading_deg> 
+     </spherical_coordinates>
+     <!-- Setting the physics engine -->
+     <physics type="ode">
+     <!-- <max_contacts>10</max_contacts> -->
+      <!-- <max_step_size>0.02</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>1000</real_time_update_rate> -->
+      <!-- <ode>
+        <solver>
+          <type>quick</type>
+          <iters>50</iters>
+          <sor>1.4</sor>
+        </solver>
+        <constraints>
+          <cfm>0</cfm>
+          <erp>1</erp>
+          <contact_max_correcting_vel>0</contact_max_correcting_vel>
+          <contact_surface_layer>0.001</contact_surface_layer>
+        </constraints>
+      </ode> -->
+    </physics>
   </world>
 </sdf>
