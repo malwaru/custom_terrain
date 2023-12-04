@@ -9,13 +9,13 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="file://$(find custom_gazebo)/src/description/meshes/basic_terrain_v2_tree_001.dae" />
+        <mesh filename="file://$(find custom_gazebo_world)/src/description/meshes/basic_terrain_v2_tree_001.dae" />
       </geometry>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="file://$(find custom_gazebo)/src/description/meshes/basic_terrain_v2_tree_001.dae" />
+        <mesh filename="file://$(find custom_gazebo_world)/src/description/meshes/basic_terrain_v2_tree_001.dae" />
       </geometry>
     </collision>
   </link>
