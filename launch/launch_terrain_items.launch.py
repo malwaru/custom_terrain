@@ -2,8 +2,14 @@ import os
 from launch import LaunchDescription
 from ament_index_python.packages import get_package_share_directory
 from launch.actions import DeclareLaunchArgument
-from launch.substitutions import LaunchConfiguration
+from launch.substitutions import LaunchConfiguration,PathJoinSubstitution
 from launch_ros.actions import Node
+from launch.substitutions import Command
+from launch_ros.substitutions import FindPackageShare
+
+from launch_ros.parameter_descriptions import ParameterValue
+
+
 import glob
 
 def generate_terrain_items_list(urdf_dir:str):
@@ -27,7 +33,7 @@ def generate_terrain_items_list(urdf_dir:str):
                     }
     start_robot_state_publisher_cmds=[]
     items=glob.glob(urdf_dir+'/*.urdf.xacro')
-    use_sim_time = LaunchConfiguration('use_sim_time')    
+    # use_sim_time = LaunchConfiguration('use_sim_time')    
 
     for item in items:
         #Terrain item information for spwaning
@@ -40,16 +46,23 @@ def generate_terrain_items_list(urdf_dir:str):
         terrain_items_list['robot_description'].append(os.path.basename(item).split('.')[0])
 
         #Terrain item robot description command
-        with open(item, 'r') as infp:
-            robot_desc = infp.read()
+        # with open(item, 'r') as infp:
+        #     robot_desc = infp.read()
 
-        urdf_params = {'robot_description': robot_desc ,'use_sim_time':use_sim_time}        
+        # print(f"The vales \\ item and {item} \ ROB {terrain_items_list['robot_description']}")
+        # package_dir = FindPackageShare('custom_gazebo')
+        # urdf_path = PathJoinSubstitution([package_dir, 'src/description/urdf',item])
+
+        robot_desc = ParameterValue(Command(['xacro ', item]), value_type=str)
+
+
+        # urdf_params = {'robot_description': robot_desc ,'use_sim_time':use_sim_time}        
         start_robot_state_publisher_cmds.append( Node(
         package='robot_state_publisher',
         executable='robot_state_publisher',
         output='both',
         namespace=robot_name,
-        parameters=[urdf_params])
+        parameters=[{'robot_description': robot_desc,}])
         )
 
     return start_robot_state_publisher_cmds,terrain_items_list
@@ -61,10 +74,12 @@ def generate_launch_description():
     name='use_sim_time',
     default_value='True',
     description='Use simulation (Gazebo) clock if true')
-    urdf_folder_path='urdf'
 
-    pkg_terrain_description=get_package_share_directory('custom_terrain')
-    path_urdf=os.path.join(pkg_terrain_description,urdf_folder_path)
+    # pkg_share=DeclareLaunchArgument('custom_terrain_package',
+    #                                 default_value='custom_gazebo',
+    #                                 description='The package where the terrain items are located')
+    pkg_terrain_description=get_package_share_directory('custom_gazebo')
+    path_urdf=os.path.join(pkg_terrain_description,'src','description','urdf')
     start_robot_state_publisher_cmds,terrain_items=generate_terrain_items_list(path_urdf)
 
 
@@ -73,10 +88,10 @@ def generate_launch_description():
     for iter in range(len(terrain_items['robot_name_in_model'])):
         spawn_items_cmds.append(
                     Node(
-                            package='gazebo_ros', 
-                            executable='spawn_entity.py',
+                            package='ros_gz_sim', 
+                            executable='create',
                             # namespace=terrain_items['robot_name_in_model'][iter],
-                            arguments=['-entity', terrain_items['robot_name_in_model'][iter], 
+                            arguments=['-name', terrain_items['robot_name_in_model'][iter], 
                                         '-topic', terrain_items['robot_description'][iter]+'/robot_description',
                                             '-x', terrain_items['spawn_x_val'][iter],
                                             '-y', terrain_items['spawn_y_val'][iter],
@@ -88,6 +103,7 @@ def generate_launch_description():
                             )
                             
 
+    # ld.add_action(pkg_share)
 
     ld.add_action(declare_use_sim_time_cmd)
     #Spawn the robot state publishers

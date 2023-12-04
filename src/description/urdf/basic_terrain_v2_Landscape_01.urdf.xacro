@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot name="landscape">
+<link name="base_link" >
+  </link>
+  <link name="basic_terrain_v2_Landscape_01_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="1" />
+      <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file://$(find custom_gazebo)/src/description/meshes/basic_terrain_v2_Landscape_01.dae" />
+      </geometry>
+    </visual>
+    <!-- <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://custom_gazebo/src/description/meshes/basic_terrain_v2_Landscape_01.dae" />
+      </geometry>
+    </collision> -->
+  </link>
+    <joint name="base_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="basic_terrain_v2_Landscape_01_link"/>
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <axis
+    xyz="0 0 0" />
+  </joint>
+
+  <gazebo> <static>true</static></gazebo>
+</robot>

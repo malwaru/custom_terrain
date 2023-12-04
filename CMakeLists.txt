@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project(custom_terrain)
+project(custom_gazebo)
 
 # Default to C99
 if(NOT CMAKE_C_STANDARD)
@@ -21,7 +21,7 @@ find_package(ament_cmake REQUIRED)
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
 install(
-  DIRECTORY src launch urdf meshes
+  DIRECTORY src launch rviz config
   DESTINATION share/${PROJECT_NAME}
 )
 
@@ -35,5 +35,6 @@ if(BUILD_TESTING)
   #set(ament_cmake_cpplint_FOUND TRUE)
   ament_lint_auto_find_test_dependencies()
 endif()
-
+ament_environment_hooks("${CMAKE_CURRENT_SOURCE_DIR}/hooks/${PROJECT_NAME}.dsv.in")
+ament_environment_hooks("${CMAKE_CURRENT_SOURCE_DIR}/hooks/${PROJECT_NAME}.sh.in")
 ament_package()
