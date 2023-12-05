@@ -10,8 +10,8 @@ def generate_launch_description():
     ld=LaunchDescription()
 
     pkg_gazebo_ros=get_package_share_directory('gazebo_ros')
-    pkg_gazebo_world=get_package_share_directory('custom_terrain')
-    pkg_terrain_description=get_package_share_directory('custom_terrain')
+    pkg_gazebo_world=get_package_share_directory('custom_gazebo_world')
+    pkg_terrain_description=get_package_share_directory('custom_gazebo_world')
     world_file=os.path.join(pkg_gazebo_world,'src/world','terrain.world')
     world = LaunchConfiguration('world')
 
