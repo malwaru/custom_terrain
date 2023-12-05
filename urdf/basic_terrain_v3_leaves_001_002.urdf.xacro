@@ -8,13 +8,13 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://custom_terrain/meshes/basic_terrain_v3_leaves_001_002.dae" />
+        <mesh filename="package://custom_gazebo_world/meshes/basic_terrain_v3_leaves_001_002.dae" />
       </geometry>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://custom_terrain/meshes/basic_terrain_v3_leaves_001_002.dae" />
+        <mesh filename="package://custom_gazebo_world/meshes/basic_terrain_v3_leaves_001_002.dae" />
       </geometry>
     </collision>
   </link>

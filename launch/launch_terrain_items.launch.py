@@ -63,7 +63,7 @@ def generate_launch_description():
     description='Use simulation (Gazebo) clock if true')
     urdf_folder_path='urdf'
 
-    pkg_terrain_description=get_package_share_directory('custom_terrain')
+    pkg_terrain_description=get_package_share_directory('custom_gazebo_world')
     path_urdf=os.path.join(pkg_terrain_description,urdf_folder_path)
     start_robot_state_publisher_cmds,terrain_items=generate_terrain_items_list(path_urdf)
 
