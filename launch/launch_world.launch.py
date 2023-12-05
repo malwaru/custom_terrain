@@ -21,30 +21,19 @@ def generate_launch_description():
     start_gazebo = IncludeLaunchDescription(
     PythonLaunchDescriptionSource(os.path.join(pkg_gazebo_ros, 'launch', 'gazebo.launch.py')),
      launch_arguments={'world': world}.items())
-#     start_gazebo_server_cmd = IncludeLaunchDescription(
-#     PythonLaunchDescriptionSource(os.path.join(pkg_gazebo_ros, 'launch', 'gzserver.launch.py')),
-#     launch_arguments={'world': world}.items())
- 
-#   # Start Gazebo client    
-#     start_gazebo_client_cmd = IncludeLaunchDescription(
-#     PythonLaunchDescriptionSource(os.path.join(pkg_gazebo_ros, 'launch', 'gzclient.launch.py')),
-#     )
 
     # Launch the terrain spawner launch file
     spawn_terrain=IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
                 pkg_terrain_description + '/launch/launch_terrain_items.launch.py'))
 
-    # spawn_terrain=PythonLaunchDescriptionSource(os.path.join(pkg_terrain_description,'launch','launch_terrain_items.launch.py'))
 
 
 
 
     
     ld.add_action(declare_world_file_cmd)
-    ld.add_action(start_gazebo)
-    # ld.add_action(start_gazebo_server_cmd)
-    # ld.add_action(start_gazebo_client_cmd)
+    ld.add_action(start_gazebo)  
     ld.add_action(spawn_terrain)
 
 
