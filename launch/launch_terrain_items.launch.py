@@ -32,7 +32,8 @@ def generate_terrain_items_list(urdf_dir:str):
     for item in items:
         #Terrain item information for spwaning
         robot_name=os.path.basename(item).split('.')[0]
-        terrain_items_list['robot_name_in_model'].append(os.path.basename(item).split('.')[0])
+        terrain_items_list['robot_name_in_model'].append(robot_name)
+        # terrain_items_list['robot_name_in_model'].append(os.path.basename(item).split('.')[0])
         terrain_items_list['spawn_x_val'].append('0.0')
         terrain_items_list['spawn_y_val'].append('0.0')
         terrain_items_list['spawn_z_val'].append('0.0')
@@ -76,8 +77,8 @@ def generate_launch_description():
                             package='gazebo_ros', 
                             executable='spawn_entity.py',
                             # namespace=terrain_items['robot_name_in_model'][iter],
-                            arguments=['-entity', terrain_items['robot_name_in_model'][iter], 
-                                        '-topic', terrain_items['robot_description'][iter]+'/robot_description',
+                            arguments=['-entity', terrain_items['robot_description'][iter], 
+                                        '-topic',terrain_items['robot_description'][iter]+'/robot_description',
                                             '-x', terrain_items['spawn_x_val'][iter],
                                             '-y', terrain_items['spawn_y_val'][iter],
                                             '-z', terrain_items['spawn_yaw_val'][iter],
