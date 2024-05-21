@@ -28,6 +28,8 @@ def generate_terrain_items_list(urdf_dir:str):
     start_robot_state_publisher_cmds=[]
     items=glob.glob(urdf_dir+'/*.urdf.xacro')
     use_sim_time = LaunchConfiguration('use_sim_time')    
+    if len(items)==0:
+        print(f'No terrain items found in the directory {urdf_dir}')
 
     for item in items:
         #Terrain item information for spwaning
@@ -61,7 +63,7 @@ def generate_launch_description():
     name='use_sim_time',
     default_value='True',
     description='Use simulation (Gazebo) clock if true')
-    world_type='medium_world'
+    world_type='world_type/medium_world'
     urdf_folder_path='urdf'
 
     pkg_terrain_description=get_package_share_directory('custom_gazebo_world')
