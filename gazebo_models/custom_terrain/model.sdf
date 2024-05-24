@@ -8,7 +8,7 @@
           <heightmap>
             <uri>model://custom_terrain/materials/textures/heightmap.png</uri>
             <size>40 40 4</size>
-            <pos>0 0 0</pos>
+            <pos>0 0 -0.3</pos>
           </heightmap>
         </geometry>
       </collision>
@@ -49,7 +49,7 @@
             </blend>
             <uri>model://custom_terrain/materials/textures/heightmap.png</uri>
             <size>40 40 4</size>
-            <pos>0 0 0</pos>
+            <pos>0 0 -0.3</pos>
           </heightmap>
         </geometry>
       </visual>

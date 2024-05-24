@@ -7,7 +7,7 @@
         <geometry>
           <heightmap>
             <uri>model://hard_terrain/materials/textures/heightmap.png</uri>
-            <size>40 50 5</size>
+            <size>40 50 4</size>
             <pos>0 0 0</pos>
           </heightmap>
         </geometry>
@@ -36,16 +36,16 @@
               <size>5</size>
             </texture>
             <blend>
-              <min_height>0</min_height>
-              <fade_dist>0.13</fade_dist>
-            </blend>
-            <blend>
-              <min_height>0.017</min_height>
-              <fade_dist>0.25</fade_dist>
-            </blend>
-            <blend>
               <min_height>0.5</min_height>
-              <fade_dist>0.1</fade_dist>
+              <fade_dist>0.9</fade_dist>
+            </blend>
+            <blend>
+              <min_height>2.0</min_height>
+              <fade_dist>1.25</fade_dist>
+            </blend>
+            <blend>
+              <min_height>1</min_height>
+              <fade_dist>5.0</fade_dist>
             </blend>
             <uri>model://hard_terrain/materials/textures/heightmap.png</uri>
             <size>50 50 5</size>
