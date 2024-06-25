@@ -63,7 +63,7 @@ def generate_launch_description():
     name='use_sim_time',
     default_value='True',
     description='Use simulation (Gazebo) clock if true')
-    world_type='world_type/hard_world'
+    world_type='world_type/medium_world'
     urdf_folder_path='urdf'
 
     pkg_terrain_description=get_package_share_directory('custom_gazebo_world')
